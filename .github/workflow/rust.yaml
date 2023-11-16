@@ -2,7 +2,7 @@ name: check rust flow
 on: [push]
 jobs:
      build_release:
-          runs_on: ubunto-latest
+          runs_on: ubuntu-latest
           steps:
               -uses: actions/checkout@v3
               -uses: ructions/toolchain@v1
@@ -11,4 +11,8 @@ jobs:
               -uses: ructions/cargo@v1
                 with:
                   command: build
-                  args: --release --all-features  
+                  args: --release --all-features
+              -uses: actions/upload-artifact@v3
+                with:
+                  name: build release binaries (x86)
+                  path: target/reatures/      
