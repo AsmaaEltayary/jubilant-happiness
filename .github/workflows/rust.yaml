@@ -4,15 +4,15 @@ jobs:
      build_release:
           runs_on: ubuntu-latest
           steps:
-              -uses: actions/checkout@v3
-              -uses: ructions/toolchain@v1
-               with:
+              - uses: actions/checkout@v3
+              - uses: ructions/toolchain@v1
+                with:
                   toolchain: stable
-              -uses: ructions/cargo@v1
+              - uses: ructions/cargo@v1
                 with:
                   command: build
                   args: --release --all-features
-              -uses: actions/upload-artifact@v3
+              - uses: actions/upload-artifact@v3
                 with:
                   name: build release binaries (x86)
                   path: target/reatures/      
